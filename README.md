@@ -423,12 +423,17 @@ The fork modifies these files from upstream llama.cpp:
 
 ```bash
 # Server mode (for Hermes Agent, Claude Code, OpenCode, etc.)
+./llama-server  -hf unsloth/Qwen3.5-9B-GGUF:Q8_0 --alias "model-turbo"   --jinja -ngl 99 -c 262144 -fa on --cache-type-k turbo3 --cache-type-v turbo3  -np 1 --metrics --host 0.0.0.0 --port 8080
+
+cd  C:\IA\engines\IA-MODELOS-llama.cpp\build\bin\Release
 ./build/bin/llama-server \
   -m models/your-model.gguf \
   --alias "model-turbo" \
   --jinja -ngl 99 -c 262144 -fa on \
   --cache-type-k turbo3 --cache-type-v turbo3 \
   -np 1 --metrics --host 0.0.0.0 --port 8080
+
+./llama-cli.exe -hf unsloth/Qwen3.5-9B-GGUF:Q8_0 -ngl 99 -c 2048 -fa on  --cache-type-k turbo3 --cache-type-v turbo3  -n 100 -p "Hello world" --jinja
 
 # CLI mode (quick test)
 ./build/bin/llama-cli \
