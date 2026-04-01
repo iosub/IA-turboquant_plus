@@ -390,8 +390,11 @@ cmake -B build -DGGML_METAL=ON -DGGML_METAL_EMBED_LIBRARY=ON -DCMAKE_BUILD_TYPE=
 cmake --build build -j
 
 # Build with CUDA (NVIDIA) — community tested on RTX 3080 Ti/3090/4090/5090
-# cmake -B build -DGGML_CUDA=ON -DCMAKE_BUILD_TYPE=Release
-# cmake --build build -j
+ cmake -B build -DGGML_CUDA=ON -DCMAKE_BUILD_TYPE=Release
+ cmake --build build -j
+
+ cmake -B build -DGGML_CUDA=ON -DCMAKE_BUILD_TYPE=Release
+ cmake --build build --config Release -j
 
 # Build with HIP (AMD) — tested on RX 9070 XT (RDNA 4, gfx1201)
 # See docs/windows-rdna4-setup.md for Windows gotchas
